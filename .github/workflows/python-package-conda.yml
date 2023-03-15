@@ -9,7 +9,6 @@ jobs:
     environment: deleteme
     env:
       SECRET: ${{  secrets.ENV_VAR }}
-
     strategy:
       max-parallel: 5
     steps:
@@ -26,9 +25,16 @@ jobs:
       - name: Install dependencies
         run: |
           conda env update --file environment.yml --name base            
+          
+
+      - name: test sec
+        if: ${{ env.SECRET == '' }}
+        run: echo Hello!
+        shell: bash
   
 
       - name: Test with pytest
         run: |
+          echo  ${{ env.SECRET }}
           conda install pytest
           pytest --ignore=docker
