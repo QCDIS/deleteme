@@ -26,8 +26,7 @@ jobs:
 
       - name: Test with pytest
         env:
-          SECRET: ${{ vars.ENV_VAR }}
+          SECRET: ${{ secrets.SuperSecret }}
         run: |
-          echo  ${{ env.SECRET }}
           conda install pytest
           pytest --ignore=docker
