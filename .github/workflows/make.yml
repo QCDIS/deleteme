@@ -1,0 +1,10 @@
+name: make
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '0 0 4 * *'
+
+jobs:
+  call-pytest:
+    uses: QCDIS/deleteme/.github/workflows/python-package-conda.yml@main
