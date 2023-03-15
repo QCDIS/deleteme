@@ -7,8 +7,6 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     environment: deleteme
-    env:
-      SECRET: ${{ secrets.SECRETTTTTTT }}
     strategy:
       max-parallel: 5
     steps:
@@ -24,14 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          conda env update --file environment.yml --name base            
-          
-
-      - name: test sec
-        run: echo Hello! $SECRET
-        shell: bash
+          conda env update --file environment.yml --name base
 
       - name: Test with pytest
+        env:
+          SECRET: ${{ vars.ENV_VAR }}
         run: |
           echo  ${{ env.SECRET }}
           conda install pytest
