@@ -34,8 +34,7 @@ jobs:
       
 
       - name: Test with pytest
-        env:
-          SECRET: ${{ vars.SUPERSECRET }}
         run: |
           conda install pytest
+          export SECRET=${{ secrets.SUPERSECRET }}
           pytest --ignore=docker
