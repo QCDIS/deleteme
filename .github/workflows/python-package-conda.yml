@@ -3,9 +3,6 @@ name: Python Package using Conda
 on:
   workflow_call:
 
-
-
-
 jobs:
   build-linux:
     runs-on: ubuntu-latest
