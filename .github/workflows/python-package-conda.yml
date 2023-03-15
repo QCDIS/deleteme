@@ -7,7 +7,7 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    environment: production
+    environment: deleteme
     env:
       SECRET: ${{ secrets.SECRET }}
 
