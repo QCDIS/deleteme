@@ -12,7 +12,7 @@ jobs:
     environment: deleteme
     env:
 #      var1: ${{ secrets.SECRET }}
-      SECRET: "AAAAA"
+      SECRET: ${{ secrets.SECRET }}
 
     strategy:
       max-parallel: 5
