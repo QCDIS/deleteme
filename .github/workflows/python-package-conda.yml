@@ -22,19 +22,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          conda env update --file environment.yml --name base
-
-      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        run: |
-          echo "The GitHub Action Secret will be masked:  "
-          echo ${{ secrets.SUPERSECRET }}
-          echo "Trick to echo GitHub Actions Secret:  "
-          echo ${{secrets.SUPERSECRET}} | sed 's/./& /g' 
-      
+          conda env update --file environment.yml --name base  
       
 
       - name: Test with pytest
+        env:
+          SECRET: ${{ secrets.REPO_SEC }}
         run: |
           conda install pytest
-          export SECRET=${{ secrets.SUPERSECRET }}
           pytest --ignore=docker
