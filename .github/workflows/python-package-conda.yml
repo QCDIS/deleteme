@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: deleteme
     env:
-      SECRET: ${{ var.ENV_VAR }}
+      SECRET: ${{ env.ENV_VAR }}
 
     strategy:
       max-parallel: 5
