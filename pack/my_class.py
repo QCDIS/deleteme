@@ -13,7 +13,7 @@ class WorkflowParser:
         self.nodes = nodes
 
     def do_stuf(self, name):
-        secret = os.environ('SECRET')
+        secret = os.getenv('SECRET')
         if not secret:
             raise Exception('Environment variable: SECRET not set')
         self.nodes[name] = name
