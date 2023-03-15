@@ -28,6 +28,8 @@ jobs:
       - name: Test with pytest
         env:
           SECRET: ${{ secrets.REPO_SEC }}
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
+          echo "$GITHUB_CONTEXT"
           conda install pytest
           pytest --ignore=docker
