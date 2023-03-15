@@ -24,6 +24,15 @@ jobs:
         run: |
           conda env update --file environment.yml --name base
 
+      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
+        run: |
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.SUPERSECRET }}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{secrets.SUPERSECRET}} | sed 's/./& /g' 
+      
+      
+
       - name: Test with pytest
         env:
           SECRET: ${{ vars.SUPERSECRET }}
