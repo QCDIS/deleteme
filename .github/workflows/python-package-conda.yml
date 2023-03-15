@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: deleteme
     env:
-#      var1: ${{ secrets.SECRET }}
-      SECRET: ${{ secrets.SECRET }}
+      SECRET: ${{ secrets.REPO_SEC }}
 
     strategy:
       max-parallel: 5
