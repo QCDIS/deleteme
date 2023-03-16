@@ -28,7 +28,7 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: ${{ inputs.dockerfile }}
     strategy:
       max-parallel: 5
     steps:
@@ -47,8 +47,8 @@ jobs:
           conda env update --file environment.yml --name base            
 
       - name: Test with pytest
-#        env:
-#          SECRET: ${{ secrets.token }}
+        env:
+          SECRET: ${{ secrets.gitlab_username }}
         run: |
           conda install pytest
           pytest --ignore=docker
