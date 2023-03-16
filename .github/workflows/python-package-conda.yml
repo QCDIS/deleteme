@@ -3,7 +3,7 @@ name: Python Package using Conda
 on:
   workflow_call:
     inputs:
-      dockerfile:
+      environment_name:
         required: true
         type: string
       tag:
@@ -16,7 +16,7 @@ on:
         required: true
         type: boolean
     secrets:
-      gitlab_username:
+      token:
         required: true
       gitlab_password:
         required: true
@@ -28,7 +28,7 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.dockerfile }}
+    environment: ${{ inputs.environment_name }}
     strategy:
       max-parallel: 5
     steps:
@@ -48,7 +48,7 @@ jobs:
 
       - name: Test with pytest
         env:
-          SECRET: ${{ secrets.gitlab_username }}
+          SECRET: ${{ secrets.token }}
         run: |
           conda install pytest
           pytest --ignore=docker
