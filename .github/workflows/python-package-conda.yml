@@ -5,9 +5,9 @@ on:
     inputs:
       environment:
         required: true
-      secrets:
-        token:
-          required: true
+    secrets:
+      token:
+        required: true
 
 
 
