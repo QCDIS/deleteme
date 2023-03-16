@@ -9,7 +9,7 @@ jobs:
     uses: QCDIS/deleteme/.github/workflows/python-package-conda.yml@main
     with:
       wheel_artifact_name: jupyterlab_vre
-      dockerfile: deleteme
+      environment_name: deleteme
       tag: n-a-a-vre-laserfarm
       push: false
     secrets:
