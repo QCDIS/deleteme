@@ -9,5 +9,5 @@ jobs:
     uses: QCDIS/deleteme/.github/workflows/python-package-conda.yml@main
     with:
       environment: deleteme
-    secrets:
-      token: ${{ secrets.REPO_SEC }}
+#    secrets:
+#      token: ${{ secrets.REPO_SEC }}
