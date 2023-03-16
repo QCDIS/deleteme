@@ -3,11 +3,27 @@ name: Python Package using Conda
 on:
   workflow_call:
     inputs:
-      environment:
-#        required: true
-#    secrets:
-#      token:
-#        required: true
+      dockerfile:
+        required: true
+        type: string
+      tag:
+        required: true
+        type: string
+      wheel_artifact_name:
+        required: true
+        type: string
+      push:
+        required: true
+        type: boolean
+    secrets:
+      gitlab_username:
+        required: true
+      gitlab_password:
+        required: true
+      docker_username:
+        required: true
+      docker_password:
+        required: true
 
 jobs:
   build-linux:

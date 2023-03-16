@@ -7,7 +7,13 @@ on:
 jobs:
   call-pytest:
     uses: QCDIS/deleteme/.github/workflows/python-package-conda.yml@main
-#    with:
-#      environment: deleteme
-#    secrets:
-#      token: ${{ secrets.REPO_SEC }}
+    with:
+      wheel_artifact_name: jupyterlab_vre
+      dockerfile: Dockerfile-laserfarm-pytorch
+      tag: n-a-a-vre-laserfarm
+      push: false
+    secrets:
+      gitlab_username: ${{ secrets.GITLAB_REGISTRY_USERNAME }}
+      gitlab_password: ${{ secrets.GITLAB_REGISTRY_PASSWORD }}
+      docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      docker_password: ${{ secrets.DOCKERHUB_PASSWORD }}
