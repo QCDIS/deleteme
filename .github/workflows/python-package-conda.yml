@@ -2,9 +2,9 @@ name: Python Package using Conda
 
 on:
   workflow_call:
-    inputs:
-      environment:
-        required: true
+#    inputs:
+#      environment:
+#        required: true
 #    secrets:
 #      token:
 #        required: true
